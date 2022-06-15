@@ -4,13 +4,23 @@
  *
  */
 
-import React from "react"
-import Header from "./Header"
-import Footer from "./Footer"
-import DevTools from "./Devtools"
-import { connect } from "react-redux"
-import { HeaderProps, FooterProps, PageProps, Posts } from "../typescript/layout";
-import { Banner, Component } from "../typescript/component"
+import React from 'react';
+
+import { connect } from 'react-redux';
+
+import {
+  Banner,
+  Component,
+} from '../typescript/component';
+import {
+  FooterProps,
+  HeaderProps,
+  PageProps,
+  Posts,
+} from '../typescript/layout';
+import DevTools from './DevTools';
+import Footer from './Footer';
+import Header from './Header';
 
 typeof window !== "undefined" && require("bootstrap/dist/css/bootstrap.min.css")
 typeof window !== "undefined" && require("bootstrap/dist/js/bootstrap")
@@ -18,14 +28,24 @@ require("../styles/style.css")
 require("@contentstack/live-preview-utils/dist/main.css")
 
 type JsonContent = {
-  header: {};
-  footer: {};
-  page?: {};
-  banner?: {};
-  blog_post?: {};
+  header: {}
+  footer: {}
+  page?: {}
+  banner?: {}
+  blog_post?: {}
 }
 
-const mapStateToProps = ({ header, footer, page, blog_post }: {header: HeaderProps, footer: FooterProps, page: PageProps, blog_post: Posts}) => {
+const mapStateToProps = ({
+  header,
+  footer,
+  page,
+  blog_post,
+}: {
+  header: HeaderProps
+  footer: FooterProps
+  page: PageProps
+  blog_post: Posts
+}) => {
   return { header, footer, page, blog_post }
 }
 
@@ -41,7 +61,7 @@ const Layout = ({
   footer: FooterProps
   children: any
   pageComponent?: Component
-  blogPost?: Posts| [Posts]
+  blogPost?: Posts | [Posts]
   banner?: Banner
 }) => {
   const json: JsonContent = { header, footer }
