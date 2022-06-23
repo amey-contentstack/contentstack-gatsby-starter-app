@@ -1,6 +1,7 @@
 import React from "react"
 import parser from "html-react-parser"
 import { ObjectProps } from "../typescript/component"
+import ContactUsForm from "./ContactUsForm"
 
 type Data = {
   section_with_html_code: ObjectProps;
@@ -30,15 +31,7 @@ const SectionWithEmbedObject = ({ data: { section_with_html_code } }: EmbedSecti
             ""
           )}{" "}
         </div>
-        <div className="contact-page-form">
-          {typeof section_with_html_code.html_code === "string" ? (
-            <div {...section_with_html_code.$?.html_code}>
-              {parser(section_with_html_code.html_code)}
-            </div>
-          ) : (
-            ""
-          )}
-        </div>
+        <ContactUsForm />
       </div>
     )
   }
