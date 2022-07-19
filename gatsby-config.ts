@@ -17,6 +17,7 @@ const {
   CONTENTSTACK_ENVIRONMENT,
   CONTENTSTACK_API_HOST,
   CONTENTSTACK_HOSTED_URL,
+  CONTENTSTACK_CDN,
 } = process.env
 
 const hostedUrl = CONTENTSTACK_HOSTED_URL || "http://localhost:9000"
@@ -65,7 +66,7 @@ module.exports = {
         api_key: CONTENTSTACK_API_KEY,
         delivery_token: CONTENTSTACK_DELIVERY_TOKEN,
         environment: CONTENTSTACK_ENVIRONMENT,
-        cdn: `https://${cdnHost}/v3`,
+        cdn: CONTENTSTACK_CDN,
         // Optional: expediteBuild set this to either true or false
         expediteBuild: true,
         // Optional: Specify true if you want to generate custom schema
