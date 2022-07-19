@@ -1,13 +1,31 @@
-import React, { useState, useEffect } from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import React, {
+  useEffect,
+  useState,
+} from "react"
+
+import {
+  graphql,
+  Link,
+  useStaticQuery,
+} from "gatsby"
 import parse from "html-react-parser"
 import { connect } from "react-redux"
-import Tooltip from "./ToolTip"
+
+import {
+  getAllEntries,
+  getHeaderRes,
+  jsonToHtmlParse,
+} from "../helper/index.d"
 import jsonIcon from "../images/json.svg"
-import { getHeaderRes, jsonToHtmlParse, getAllEntries } from "../helper/index.d"
 import { onEntryChange } from "../live-preview-sdk/index.d"
 import { actionHeader } from "../store/actions/state.action"
-import { DispatchData, Entry, HeaderProps, Menu } from "../typescript/layout";
+import {
+  DispatchData,
+  Entry,
+  HeaderProps,
+  Menu,
+} from "../typescript/layout"
+import Tooltip from "./ToolTip"
 
 const queryHeader = () => {
   const query = graphql`
@@ -78,6 +96,9 @@ const Header = ({ dispatch }: DispatchData) => {
 
   return (
     <header className="header">
+      <div>
+        Hello!
+      </div>
       <div className="note-div" {...getHeader.notification_bar.$?.announcement_text}>
         {getHeader.notification_bar.show_announcement &&
           typeof getHeader.notification_bar.announcement_text === "string" &&
